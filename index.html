@@ -117,19 +117,17 @@
 
     <script>
       async function apiNasa() {
-        const dadosResponse = await fetch(
-          "https://api.nasa.gov/planetary/apod?api_key=twztaFNKwcYvElLpLcURmrUQxpYWUYWwCHc6WLhx"
-        );
+        const dadosResponse = await fetch("https://api.nasa.gov/planetary/apod?api_key=twztaFNKwcYvElLpLcURmrUQxpYWUYWwCHc6WLhx");
         const dadosJSON = await dadosResponse.json();
         const titulo = document.getElementById("titulo");
         const direito = document.getElementById("direito");
         const descricao = document.getElementById("descricao");
 
         titulo.innerHTML = dadosJSON.title;
-        direito.innerHTML = `<p>Crédito e direitos autorais da ilustração: ${dadosJSON.copyright}`;
+        direito.innerHTML = `Crédito e direitos autorais da ilustração: ${dadosJSON.copyright}`;
         document.getElementById("imagem").src = dadosJSON.url;
         data.innerHTML = dataDeHoje;
-        descricao.innerHTML = `<p>Descrição: ${dadosJSON.explanation}</p>`;
+        descricao.innerHTML = `Descrição: ${dadosJSON.explanation}`;
         ttt.innerHTML = dataAtual;
       }
       apiNasa();
